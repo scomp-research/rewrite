@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles/facesidsurvey.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+<script>
+  function fireComplete() {
+    var form = document.getElementById("eye-form");
+    
+    var eyes1 = $('input[name=eyes1]:checked').val();
+    var eyes2 = $('input[name=eyes2]:checked').val();
+    var eyes3 = $('input[name=eyes3]:checked').val();
+    var eyes4 = $('input[name=eyes4]:checked').val();
+    
+    if (eyes1 === undefined || eyes2 === undefined || eyes3 === undefined || eyes4 === undefined) {
+      alert("Please select an emotion for each face."); 
+    } else {
+      parent.endSurvey("faces", [{"eyes1":eyes1},{"eyes2":eyes2},{"eyes3":eyes3},{"eyes4":eyes4}]); 
+    }
+
+  }
+</script>
+  
+</head>
+<body>
+  
+<div id="header">
+  <div id="headerText1">Please answer the following to help us better understand your comment.</div>
+  <div id="headerText2">For each of these faces, please choose which emotion the person is displaying.</div>
+</div>
+<form id="eye-form">
+  <div class="image-box">
+    <img class="eye-image" id="eyes1" src= "../resources/eyes1.png" alt="first picture of eyes"/>
+    <br> 
+    <input class="surveyRadioButton" type="radio" name="eyes1" value="terrified"> Terrified<br>
+    <input class="surveyRadioButton" type="radio" name="eyes1" value="upset"> Upset<br>
+    <input class="surveyRadioButton" type="radio" name="eyes1" value="arrogant"> Arrogant <br> 
+    <input class="surveyRadioButton" type="radio" name="eyes1" value="annoyed"> Annoyed <br>
+  </div>
+  <div class="image-box">
+    <img class="eye-image" id="eyes2" src= "../resources/eyes2.png" alt="second picture of eyes"/>
+    <br> 
+    <input class="surveyRadioButton" type="radio" name="eyes2" value="joking"> Joking<br>
+    <input class="surveyRadioButton" type="radio" name="eyes2" value="insisting"> Insisting <br> 
+    <input class="surveyRadioButton" type="radio" name="eyes2" value="amused"> Amused <br>
+    <input class="surveyRadioButton" type="radio" name="eyes2" value="relaxed"> Relaxed<br>
+  </div>
+  
+  <div class="image-box">
+      <img class="eye-image" id="eyes3" src= "../resources/eyes3.png" alt="third picture of eyes"/>
+    <br> 
+    <input class="surveyRadioButton" type="radio" name="eyes3" value="pensive"> Pensive<br>
+    <input class="surveyRadioButton" type="radio" name="eyes3" value="irritated"> Irritated<br>
+    <input class="surveyRadioButton" type="radio" name="eyes3" value="excited"> Excited<br> 
+    <input class="surveyRadioButton" type="radio" name="eyes3" value="hostile"> Hostile <br>
+  </div>
+  <div class="image-box">
+      <img class="eye-image" id="eyes4" src= "../resources/eyes4.png" alt="fourth picture of eyes"/>
+    <br> 
+    <input class="surveyRadioButton" type="radio" name="eyes4" value="interested"> Interested<br>
+    <input class="surveyRadioButton" type="radio" name="eyes4" value="joking"> Joking<br>
+    <input class="surveyRadioButton" type="radio" name="eyes4" value="affectionate"> Affectionate<br> 
+    <input class="surveyRadioButton" type="radio" name="eyes4" value="contented"> Contented <br>
+  </div>
+</form>
+<button id="submit-button" onclick="fireComplete()">Submit</button>
+</body>
+</html>

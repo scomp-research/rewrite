@@ -1,0 +1,30 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../styles/background.css">
+    <link rel="stylesheet" type="text/css" href="../styles/pre.css">
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="../scripts/pre_scripts_moderation.js"></script>
+    <script src="../scripts/user_scripts_moderation.js"></script>
+</head>
+
+<body onload='postToSheet("Landed on pre-exercise Page", "N/A", "START");'>
+  <h1> Moderation task instructions: </h1>
+  On the following page you will see a brief <b>political blog</b> snippet. Please read it carefully and compose a comment. You may see other comments already on this thread. 
+  <br> 
+  <br>
+  Prior to entering your comment, you may be asked to complete a short task involving a previously posted comment. We are exploring ways to improve the tone of our site, hopefully leading to a more civil and respectful dialogue.
+  <br> 
+  <br> 
+  Once you have completed the task and submitted your comment, you may upvote, downvote, report, or reply to others’ comments.
+  <br>
+  <br>
+  <strong>THIS TASK MAY NOT WORK IF YOU HAVE AN OLDER WEB BROWSER OR CERTAIN BROWSER EXTENSIONS INSTALLED THAT BLOCK LOCAL DATA STORGAGE (we use this to randomize what some users see in order to manage the study conditions). <br><br>
+  IF A BLANK WHITE BOX POPS UP THAT PREVENTS YOU FROM CONTINUING, YOU MAY BE ABLE TO COMPLETE THE TASK EITHER BY TEMPORARILY DISABLING THESE EXTENSIONS OR BY USING INCOGNITO OR PRIVATE BROWSING MODE</font></strong>
+  <br>
+  <input id="instructions-checkbox" type="checkbox"> I have read and understood the project task.
+  <br>
+  <br>
+  <button class="continue-button" onclick="continueToExercise()">Continue to Task</button>
+</body>
+</html>

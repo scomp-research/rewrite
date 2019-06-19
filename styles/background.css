@@ -1,0 +1,20 @@
+body {
+  width: 60%; 
+  margin: 0 auto;
+}
+
+#cmu-logo {
+  padding-top: 20px; 
+  width: 300px; 
+}
+
+#foot-spacing {
+  height: 20px; 
+}
+
+.continue-button {
+  font-size: 20px; 
+  width: 200px; 
+  height: 40px; 
+  background-color: lightgray; 
+}

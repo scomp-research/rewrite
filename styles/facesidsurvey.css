@@ -1,0 +1,245 @@
+main{
+    display: none;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+}
+.model-box{
+    width: 580px;
+    position: fixed;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+    background-color: white;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.model-box>ul>li>img{
+    width: 120%;
+    height: 123%;
+    -webkit-transform: translateX(-8) translateY(-4%);
+    -moz-transform: translateX(-8%) translateY(-4%);
+    -ms-transform: translateX(-8%) translateY(-4%);
+    -o-transform: translateX(-8%) translateY(-4%);
+    transform: translateX(-8%) translateY(-4%);
+}
+.model-box>ul{
+    text-align: center;
+    margin-top:18px;
+}
+
+.model-box>ul>li>.verifed{
+    opacity:0;
+    position: absolute;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    top: 5px;
+    left: 5px;
+}
+.model-box>ul>li>img:first-child{
+    -webkit-transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
+    -ms-transition: all ease 0.2s;
+    -o-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+}
+.model-box>ul>li{
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 169px;
+    height: 146px;
+    margin: 0px 7.5px;
+    margin-bottom: 9px;
+    text-align: center;
+    line-height: 146px;
+}
+.model-box>header>p:first-child{
+    font-size: 11pt;
+    font-weight: bold;
+    font-family: Helvetica Neue;
+    color: white;
+}
+.model-box>header>p:nth-child(2){
+    font-size: 10pt;
+    font-family: Helvetica Neue;
+    color: white;
+}
+.model-box>header{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 20px 15px;
+    background-color: #4A90E2;
+}
+.model-box .verifybtn{
+    height: 36px;
+    text-align: right;
+    overflow: hidden;
+    margin-top: 16px;
+}
+.model-box .verifybtn img{
+    height: 68px;
+    -webkit-transform: translateY(-6px);
+    -moz-transform: translateY(-6px);
+    -ms-transform: translateY(-6px);
+    -o-transform: translateY(-6px);
+    transform: translateY(-6px);
+}
+
+.narrow{
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    -o-transform: scale(0.85);
+    transform: scale(0.95) translateY(-8px) translateX(-18px)!important;
+}
+
+.verifybtn>a>img{
+    -webkit-transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
+    -ms-transition: all ease 0.2s;
+    -o-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+}
+
+
+/* Added
+
+*/
+
+*{font-size: 14px;list-style: none;text-decoration: none;margin: 0;padding: 0;}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.clearfix:after{clear: both;}
+.clearfix:before, .clearfix:after{
+  content: '';
+  display: table;
+}
+a{
+  color: #666;
+}
+
+html{
+  height: 100%;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+}
+table.border {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+table.border td,
+table.border th {
+    border: 1px solid grey;
+    padding: 3px;
+}
+
+.container {
+	color: inherit ;
+	max-width: 580px ;
+	margin: 0 auto; 
+}
+
+.survey1a {
+	float: left ;
+	width: 50% ;
+	padding: 15px;
+}
+.survey1b {
+	float: left ;
+	width: 50% ;
+	padding: 15px;
+}
+.survey2a {
+	float: left ;
+	width: 33% ;
+}
+.survey2b {
+	float: left ;
+	width: 33% ;
+}
+.survey2c {
+	float: left ;
+	width: 33%
+}
+
+.surveytable {
+    padding: 5px;
+    text-align: left;
+}
+
+#submit {
+    background-color: #4A90E2; 
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    position:relative;
+	left: 120px;
+	top: 120px;
+    width:80px;
+}
+
+.eye-image {
+  width: 170px; 
+  height: 67px; 
+}
+
+.surveyRadioButton {
+  clear: left; 
+}
+
+.image-box {
+  padding: 10px; 
+  float: left; 
+}
+
+#header { 
+  padding: 10px; 
+  background-color: #2A60D1;
+  color: white; 
+  font-family: Roboto;
+}
+
+#headerText1 {
+  font-weight: bold; 
+  font-size: 18px;
+}
+
+#headerText2 {
+  padding-top: 10px;
+  font-size: 14px; 
+}
+
+#submit-button {
+  position: absolute; 
+  right: 20px;
+  bottom: 20px;
+  clear: left;
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #2A60D1;
+  color: white;
+}

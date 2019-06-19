@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="../scripts/user_scripts_moderation.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+<script>
+  
+  function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+  
+  function fireComplete() {
+    var form = document.getElementById("survey-form");
+    
+    var policy = $('input[name=policy]:checked').val();
+    var age = $('input[name=age]').val();
+    var gender = $('input[name=gender]:checked').val();
+    var gendertext = $('input[name=gendertext]').val();
+    var education = $('input[name=education]:checked').val();
+	  /*
+    var purpose = $('input[name=purpose]').val();
+    var react1 = $('input[name=react1]:checked').val();
+    var react2 = $('input[name=react2]:checked').val();
+    var react3 = $('input[name=react3]:checked').val();
+    var react4 = $('input[name=react4]:checked').val();
+    var react5 = $('input[name=react5]:checked').val();
+    var react6 = $('input[name=react6]:checked').val();
+    var react7 = $('input[name=react7]:checked').val();
+    var react8 = $('input[name=react8]:checked').val();
+	  */
+
+
+    
+    if (policy === undefined || age === undefined || gender === undefined || education === undefined)  {
+	    // <!--|| purpose === undefined || react1 === undefined || react2 === undefined || react3 === undefined || react4 === undefined || react5 === undefined || react6 === undefined || react7 === undefined || react8 === undefined-->
+      alert("Please answer each question."); 
+    } 
+    else if (age < 18 || age > 110 || !isNumeric(age)) {
+      alert("Please enter a valid age.");
+    }
+    else {
+        postToSheet("final-demographics", "N/A", JSON.stringify([{"policy":policy},{"age":age},{"gender":gender},{"gendertext":gendertext}, {"education":education}]));
+       // postToSheet("final-survey", "N/A", JSON.stringify([{"perspective":perspective},{"goal_modification":goal_modification},{"goal_comment":goal_comment},{"react1":react1},{"react2":react2},{"react3":react3},{"react4":react4},{"react5":react5}, {"thoughts_tone":thoughts_tone}]));
+	    // <!--,{"purpose":purpose},{"react1":react1},{"react2":react2},{"react3":react3},{"react4":react4},{"react5":react5},{"react6":react6},{"react7":react7},{"react8":react8}-->
+        console.log(policy)
+        setTimeout(function() {
+          window.location.replace('../pages/post-exercise-moderation.html');
+        }, 50);
+    }
+  }
+</script>
+  
+<script>
+function deleteInputContents() {
+  document.getElementById("genderInput").value = ""; 
+}
+</script>
+  
+</head>
+<body>
+  
+<div id="header" style="padding-left: 40px; padding-top: 40px">
+  <div id="headerText1">Please answer the following to help us better understand your comment. <br> 
+  These will <b>NOT</b> be connected to your worker ID at any point during our analysis.</div>
+</div>
+<div style="padding-left: 40px">
+<form id="survey-form">
+	<!--
+    <br>
+  <div class="purpose">
+    <div id="questionb1"><strong>1. What was the purpose of the CAPTCHA you were shown in this study?</strong></div>
+	  <input class="openEnded" type="text" name="purpose" pattern = "[A-Za-z]{1,}" style="width: 300px;">
+  </div>
+    <br>
+  <div class="reactance">
+  <div id="question2header"><strong>2. Please rate how strongly you agree or disagree with the following statements on a scale from 1 to 7, where 1 = “Strongly Disagree” and 7 = “Strongly Agree”:</strong></div><br>
+  <div id="question2a">
+    <table>
+      <tr>
+        <th></th>
+        <th>Strongly <br>disagree</th>
+        <th>Disagree</th>
+        <th>Slightly <br>disagree</th>
+        <th>Neither agree <br>nor disagree</th>
+        <th>Slightly <br>agree</th>
+        <th>Agree</th>
+	<th>Strongly <br>agree</th>
+      </tr>
+      <tr>
+        <td>The CAPTCHA tried to make a decision for me.</td>
+        <td><input type="radio" name="react1" data-col="1" value = "-3"></td>
+        <td><input type="radio" name="react1" data-col="2" value = "-2"></td>
+        <td><input type="radio" name="react1" data-col="3" value = "-1"></td>
+        <td><input type="radio" name="react1" data-col="4" value = "0"></td>
+        <td><input type="radio" name="react1" data-col="5" value = "1"></td>
+        <td><input type="radio" name="react1" data-col="6" value = "2"></td>
+	<td><input type="radio" name="react1" data-col="7" value = "3"></td>
+      </tr>
+      <tr>
+        <td>The CAPTCHA tried to pressure me.</td>
+        <td><input type="radio" name="react2" data-col="1" value = "-3"></td>
+        <td><input type="radio" name="react2" data-col="2" value = "-2"></td>
+        <td><input type="radio" name="react2" data-col="3" value = "-1"></td>
+        <td><input type="radio" name="react2" data-col="4" value = "0"></td>
+        <td><input type="radio" name="react2" data-col="5" value = "1"></td>
+        <td><input type="radio" name="react2" data-col="6" value = "2"></td>
+	<td><input type="radio" name="react2" data-col="7" value = "3"></td>
+      </tr>
+      <tr>
+        <td>The CAPTCHA threatened my freedom to choose.</td>
+        <td><input type="radio" name="react3" data-col="1" value = "-3"></td>
+        <td><input type="radio" name="react3" data-col="2" value = "-2"></td>
+        <td><input type="radio" name="react3" data-col="3" value = "-1"></td>
+        <td><input type="radio" name="react3" data-col="4" value = "0"></td>
+        <td><input type="radio" name="react3" data-col="5" value = "1"></td>
+        <td><input type="radio" name="react3" data-col="6" value = "2"></td>
+	<td><input type="radio" name="react3" data-col="7" value = "3"></td>
+      </tr>
+      <tr>
+        <td>The CAPTCHA tried to manipulate me.</td>
+        <td><input type="radio" name="react4" data-col="1" value = "-3"></td>
+        <td><input type="radio" name="react4" data-col="2" value = "-2"></td>
+        <td><input type="radio" name="react4" data-col="3" value = "-1"></td>
+        <td><input type="radio" name="react4" data-col="4" value = "0"></td>
+        <td><input type="radio" name="react4" data-col="5" value = "1"></td>
+        <td><input type="radio" name="react4" data-col="6" value = "2"></td>
+	<td><input type="radio" name="react4" data-col="7" value = "3"></td>
+      </tr>
+      <tr>
+        <td>I felt angry while viewing this CAPTCHA.</td>
+        <td><input type="radio" name="react5" data-col="1" value = "-3"></td>
+        <td><input type="radio" name="react5" data-col="2" value = "-2"></td>
+        <td><input type="radio" name="react5" data-col="3" value = "-1"></td>
+        <td><input type="radio" name="react5" data-col="4" value = "0"></td>
+        <td><input type="radio" name="react5" data-col="5" value = "1"></td>
+        <td><input type="radio" name="react5" data-col="6" value = "2"></td>
+	<td><input type="radio" name="react5" data-col="7" value = "3"></td>
+      </tr>
+      <tr>
+        <td>I felt annoyed while viewing this CAPTCHA.</td>
+        <td><input type="radio" name="react6" data-col="1" value = "-3"></td>
+        <td><input type="radio" name="react6" data-col="2" value = "-2"></td>
+        <td><input type="radio" name="react6" data-col="3" value = "-1"></td>
+        <td><input type="radio" name="react6" data-col="4" value = "0"></td>
+        <td><input type="radio" name="react6" data-col="5" value = "1"></td>
+        <td><input type="radio" name="react6" data-col="6" value = "2"></td>
+	<td><input type="radio" name="react6" data-col="7" value = "3"></td>
+      </tr>
+      <tr>
+        <td>I felt irritated while viewing this CAPTCHA.</td>
+        <td><input type="radio" name="react7" data-col="1" value = "-3"></td>
+        <td><input type="radio" name="react7" data-col="2" value = "-2"></td>
+        <td><input type="radio" name="react7" data-col="3" value = "-1"></td>
+        <td><input type="radio" name="react7" data-col="4" value = "0"></td>
+        <td><input type="radio" name="react7" data-col="5" value = "1"></td>
+        <td><input type="radio" name="react7" data-col="6" value = "2"></td>
+	<td><input type="radio" name="react7" data-col="7" value = "3"></td>
+      </tr>
+      <tr>
+        <td>I felt aggravated while viewing this CAPTCHA.</td>
+        <td><input type="radio" name="react8" data-col="1" value = "-3"></td>
+        <td><input type="radio" name="react8" data-col="2" value = "-2"></td>
+        <td><input type="radio" name="react8" data-col="3" value = "-1"></td>
+        <td><input type="radio" name="react8" data-col="4" value = "0"></td>
+        <td><input type="radio" name="react8" data-col="5" value = "1"></td>
+        <td><input type="radio" name="react8" data-col="6" value = "2"></td>
+	<td><input type="radio" name="react8" data-col="7" value = "3"></td>
+      </tr>
+    </table>
+  </div>
+-->
+    <br>
+  <div class="policy">
+    <div id="question1"><strong>1. What is your political perspective?</strong></div>
+    <input class="surveyRadioButton" type="radio" name="policy" value="-3"> Extremely liberal<br>
+    <input class="surveyRadioButton" type="radio" name="policy" value="-2"> Liberal<br>
+    <input class="surveyRadioButton" type="radio" name="policy" value="-1"> Slightly liberal <br> 
+    <input class="surveyRadioButton" type="radio" name="policy" value="0"> Moderate, middle of the road <br>
+    <input class="surveyRadioButton" type="radio" name="policy" value="1"> Slightly conservative <br>
+    <input class="surveyRadioButton" type="radio" name="policy" value="2"> Conservative <br>
+    <input class="surveyRadioButton" type="radio" name="policy" value="3"> Extremely conservative <br>
+  </div>
+  
+    
+    <br>
+    <div class="age">
+        <div id="question2"><strong>2. What is your age?</strong></div>
+        <input type="text" pattern="[0-9]{2,3}" name="age" >
+
+    </div>
+    
+    <br>
+    <div class="gender">
+        <div id="question3"><strong>3. What is your gender?</strong></div> 
+            <input class="surveyRadioButton" type="radio" name="gender" value="Female" onclick="deleteInputContents()"> Female<br>
+            <input class="surveyRadioButton" type="radio" name="gender" value="Male" onclick="deleteInputContents()"> Male<br>
+            <input class="surveyRadioButton" type="radio" name="gender" value="Other"> Other <input id="genderInput" type="text" onfocus="$('input[name=gender]').prop('checked', true)" pattern = "[A-Za-z]{1,}" name="gendertext">
+
+  </div>
+  <br>
+  <div class="education">
+    <div id="question4"><strong>4. What is the highest degree or level of school you have completed?</strong></div>
+    <input class="surveyRadioButton" type="radio" name="education" value="0"> Less than high school<br>
+    <input class="surveyRadioButton" type="radio" name="education" value="1"> High school graduate (includes equivalency)<br>
+    <input class="surveyRadioButton" type="radio" name="education" value="2"> Some college, no degree <br> 
+    <input class="surveyRadioButton" type="radio" name="education" value="3"> Associate's degree <br>
+    <input class="surveyRadioButton" type="radio" name="education" value="4"> Bachelor's degree <br>
+    <input class="surveyRadioButton" type="radio" name="education" value="5"> Ph.D. <br>
+    <input class="surveyRadioButton" type="radio" name="education" value="6"> Graduate or professional degree <br>
+  </div>
+  <br>
+</form>
+
+<button id="submit-button" onclick="fireComplete()">Submit</button>
+</div>
+	
+</body>
+</html>

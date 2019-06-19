@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<link rel="stylesheet" href="../styles/wordunscramblesurvey.css">
+</head>
+<body>
+<script src="../scripts/jquery-3.3.1.min.js"></script>
+<script src="../scripts/openmodel.js"></script>
+  
+<script>
+  function fireComplete() {
+    var form = document.getElementById("eye-form");
+    
+    var val1 = $('input[name=innerfeelings]:checked').val();
+    var val2 = $('input[name=reflective]:checked').val();
+    var val3 = $('input[name=privatethoughts]:checked').val();
+    
+    if (val1 === undefined || val2 === undefined || val3 === undefined) {
+      alert("Please select a value for each question."); 
+    } else {
+      parent.endSurvey("scramble_intervention", [{"innerfeelings":val1},{"reflective":val2},{"privatethoughts":val3}]); 
+    }
+  }
+</script>
+  
+<script>
+$(document).ready(function(){
+  openmodel(); 
+}); 
+</script>
+<script>
+	$('input:radio').click(function() {
+	var innerfeelings = $('input:radio[name=innerfeelings]:checked').val();
+	var reflective = $('input:radio[name=reflective]:checked').val();
+	var privatethoughts = $('input:radio[name=privatethoughts]:checked').val();
+	});
+</script>
+<a href="javascript:;" onclick="openmodel()">Open</a>
+    <main id="main">
+    	<div class = "container">
+    		<div id = "survey1" class = model-box>
+				<header>
+					<p class="title">Please answer the following to help us better understand your comment:</p>
+					<p class="text"></p>
+				</header>
+				<table id = "surveytable1" class = "surveytable">
+					<thead>
+						<tr>
+							<th colspan = "4">"Right now, I am..."</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td> </td>
+							<td>Strongly disagree</td>
+							<td>Disagree</td>
+							<td>Slightly disagree</td>
+							<td>Neither agree nor disagree</td>
+							<td>Slightly agree</td>
+							<td>Agree</td>
+							<td>Strongly agree</td>
+						</tr>
+						<tr>
+							<td>...conscious of my inner feelings</td>
+							<td><input type="radio" value="1" name="innerfeelings"/></td>
+							<td><input type="radio" value="2" name="innerfeelings"/></td>
+							<td><input type="radio" value="3" name="innerfeelings"/></td>
+							<td><input type="radio" value="4" name="innerfeelings"/></td>
+							<td><input type="radio" value="5" name="innerfeelings"/></td>
+							<td><input type="radio" value="6" name="innerfeelings"/></td>
+							<td><input type="radio" value="7" name="innerfeelings"/></td>
+
+						</tr>
+						<tr>
+							<td>...reflective about my life</td>
+							<td><input type="radio" value="1" name="reflective"/></td>
+							<td><input type="radio" value="2" name="reflective"/></td>
+							<td><input type="radio" value="3" name="reflective"/></td>
+							<td><input type="radio" value="4" name="reflective"/></td>
+							<td><input type="radio" value="5" name="reflective"/></td>
+							<td><input type="radio" value="6" name="reflective"/></td>
+							<td><input type="radio" value="7" name="reflective"/></td>
+
+						</tr>
+						<tr>
+							<td>...aware of my innermost private thoughts</td>
+							<td><input type="radio" value="1" name="privatethoughts"/></td>
+							<td><input type="radio" value="2" name="privatethoughts"/></td>
+							<td><input type="radio" value="3" name="privatethoughts"/></td>
+							<td><input type="radio" value="4" name="privatethoughts"/></td>
+							<td><input type="radio" value="5" name="privatethoughts"/></td>
+							<td><input type="radio" value="6" name="privatethoughts"/></td>
+							<td><input type="radio" value="7" name="privatethoughts"/></td>
+
+						</tr>
+					</tbody>
+				</table>
+            	<button id = "submit" onclick="fireComplete()">Submit</button>
+			</div>
+		</div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles/dragdropsurvey.css">
+</head>
+<body>
+<script src="../scripts/jquery-3.3.1.min.js"></script>
+<script src="../scripts/openmodel.js"></script>
+  
+<script>
+$(document).ready(function(){
+  openmodel(); 
+}); 
+</script>
+<script>
+  function fireComplete() {
+    var form = document.getElementById("eye-form");
+    
+    var val1 = $('input[name=compassionate]:checked').val();
+    var val2 = $('input[name=analytical]:checked').val();
+    var val3 = $('input[name=independent]:checked').val();
+    
+    if (val1 === undefined || val2 === undefined || val3 === undefined) {
+      parent.alert("Please select a value for each question."); 
+    } else {
+      parent.endSurvey("drag-drop-result", [{"compassionate":val1},{"analytical":val2},{"independent":val3}]); 
+    }
+  }
+</script>
+
+    <main id="main">
+    	<div class = "container">
+    		<div id = "survey1" class = model-box>
+				<header>
+					<p class="title">Please answer the following to help us better understand your comment:</p>
+					<p class="text"></p>
+				</header>
+				<div class="questions">
+				<table id = "surveytable1" class = "singlequestionsurvey">
+					<thead>
+						<tr>
+							<th id="question1" class = "singlequestionheader" colspan="4">1. Right now how <strong>compassionate</strong> do you feel?</th>
+						</tr>
+					</thead>
+						<tr>
+							<td> </td>
+						</tr>
+					<tbody>
+						<tr id="scale1" class="fourlevelscale">
+							<td>Not at all compassionate</td>
+							<td>Somewhat compassionate</td>
+							<td>Very compassionate</td>
+							<td>Extremely compassionate</td>
+						</tr>
+
+						<tr id="options1" class="fourradioitems">
+							<td><input type="radio" value="0" name="compassionate"/></td>
+							<td><input type="radio" value="1" name="compassionate"/></td>
+							<td><input type="radio" value="2" name="compassionate"/></td>
+							<td><input type="radio" value="3" name="compassionate"/></td>
+						</tr>
+					</tbody>
+				</table>		
+				<table id = "surveytable2" class = "singlequestionsurvey">
+					<thead>
+						<tr>
+							<th id="question2" class = "singlequestionheader" colspan="4">2. Right now how <strong>analytical</strong> do you feel?</th>			
+						</tr>
+					</thead>	
+					<tbody>
+						<tr id="scale2" class="fourlevelscale">
+							<td>Not at all analytical</td>
+							<td>Somewhat analytical</td>
+							<td>Very analytical</td>
+							<td>Extremely analytical</td>
+						</tr>
+
+						<tr id="options2" class="fourradioitems">
+							<td><input type="radio" value="0" name="analytical"/></td>
+							<td><input type="radio" value="1" name="analytical"/></td>
+							<td><input type="radio" value="2" name="analytical"/></td>
+							<td><input type="radio" value="3" name="analytical"/></td>
+						</tr>
+					</tbody>
+				</table>
+				<table id = "surveytable3" class = "singlequestionsurvey">
+					<thead>
+						<tr>
+							<th id="question3" class = "singlequestionheader" colspan="4">3. Right now how <strong>independent</strong> do you feel?</th>			
+						</tr>
+					</thead>	
+					<tbody>
+						<tr id="scale3" class="fourlevelscale">
+							<td>Not at all independent</td>
+							<td>Somewhat independent</td>
+							<td>Very independent</td>
+							<td>Extremely independent</td>
+						</tr>
+
+						<tr id="options3" class="fourradioitems">
+							<td><input type="radio" value="0" name="independent"/></td>
+							<td><input type="radio" value="1" name="independent"/></td>
+							<td><input type="radio" value="2" name="independent"/></td>
+							<td><input type="radio" value="3" name="independent"/></td>
+						</tr>
+					</tbody>
+				</table>
+
+            		<button id = "submit" onclick="fireComplete()">Submit</button>
+			</div>
+		</div>
+      </div>
+    </main>
+</body>
+</html>

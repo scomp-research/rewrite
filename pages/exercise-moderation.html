@@ -1,0 +1,161 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../styles/background.css">
+  <link rel="stylesheet" type="text/css" href="../styles/exercise_style_moderation.css">
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="../scripts/exercise_scripts_moderation.js"></script>
+  <script src="../scripts/continue_scripts_moderation.js"></script>
+  <script src="../scripts/user_scripts_moderation.js"></script>
+  <title>Political Discussion Forum</title>
+</head>
+<body>
+
+  <div id="overlay">
+    <div id="overlayBackground"></div>
+  </div>
+  <div style="margin: 0 auto;">
+    <iframe id="intervention"></iframe>
+  </div>
+  <script>
+    initializeTrial(); // Setup Intervention and choose from list; 
+  </script>
+  
+  <div id="main-content">
+   <div id="topdesc">Voices of New Americans Blog:</div>
+    <div id="headline">I'm a Legal Immigrant Who Voted for Trump</div>
+    <div id="author-break"></div>
+    </div>
+    <br>
+    <div id="headline-article-break"></div>
+    <div class="article-text">
+     They call me a <q>deplorable</q> for believing in patriotism, economic openness, and cultural preservation. They lecture me endlessly about <q>intolerance</q>. I spent years going through the process of legally immigrating from Germany and becoming an American citizen and I am sick of the way Democrats idolize illegal aliens, who come and expect to be treated the same as me but have spent no time paying their dues.       <br>
+      <br>
+     I have saved every penny I could to provide a good home and a good education for my family, but I am forced to pay excessive taxes to fund Democrats' favorite <q>academic</q> research on safe spaces and deviant sexual behaviors. I work long hours every day, yet I pay for welfare programs that support drug addiction and gang violence. And unlike these snowflake millenials, I studied hard in college instead of spending my time making childish signs and blocking traffic.    <br>
+      <br>
+     As a legal immigrant and proud <q>deplorable</q>, I am glad that my voice finally counted with my vote for President Trump. It is time to put an end to the Democrat fantasy world.
+ </div>
+    <div id="article-voting" class="secondary-interactions">
+      <button class="response-button" onclick="buttonClicked('downvote', this);" type="button"> <img id="downvote-article-icon-1" class="button-icon" src='../resources/downvote.png'> Downvote </button>
+      <button class="response-button" onclick="buttonClicked('upvote', this);" type="button"> <img id="upvote-article-icon-1" class="button-icon" src='../resources/upvote.png'> Upvote </button>
+    </div>
+  
+  <div id="article-break"> </div>
+
+  <div id="comment-section">
+    <div id="comment-header">Comments</div>
+    <br>
+    <div id="comment1" class="comment-box"> 
+     <div class="comment-username">User 2647   <a>(35 minutes ago)</a></div>
+      <div class="comment-text">By <q>cultural preservation</q> do you mean white supremacy? most trump supporters are racist and would deport immigrants in a second if they could, especially the black ones</div>
+      <div class="comment-interactions secondary-interactions">
+        <button id="reply-button-1" class="response-button reply-button" onclick="buttonClicked('reply', this)">Reply</button>
+        <button id="downvote-button-1" class="response-button" onclick="buttonClicked('downvote', this);"> 
+          <img id="downvote-comment-icon-1" class="button-icon" src='../resources/downvote.png'> Downvote</button>
+        <button id="upvote-button-1" class="response-button" onclick="buttonClicked('upvote', this);"> 
+          <img id="upvote-comment-icon-1" class="button-icon" src='../resources/upvote.png'>Upvote</button>
+        <button id="report-button-1" class="response-button" onclick="buttonClicked('report', this);">
+          <img id="report-icon-1" class="button-icon" src="../resources/flag.png">Report</button>
+      </div>
+      <div id="reply-area-1" class="comment-reply reply-button reply-area">
+        <textarea id="reply-textarea-1" placeholder="Join a discussion" class="reply-textarea"></textarea>
+        <button id="reply-submit-button-1" class="response-button reply-button main-button reply-submit-button" onclick="buttonClicked('reply-submit', this)">Reply</button>
+      </div>
+      
+      <div class="user-comment-spacer"></div>
+    </div>
+    
+    <div id="comment2" class="comment-box"> 
+      <div class="comment-username">User 1892   <a>(27 minutes ago)</a></div>
+     <div class="comment-text" id="moderated-comment">Are you stupid? you have no idea what your talking about. Your actually a fascist and deserve to be called deplorable.<a id="twist-response"></a></div>
+      <div class="comment-interactions secondary-interactions">
+        <button id="reply-button-2" class="response-button reply-button" onclick="buttonClicked('reply', this)">Reply</button>
+        <button id="downvote-button-2" class="response-button" onclick="buttonClicked('downvote', this);"> 
+          <img id="downvote-comment-icon-2" class="button-icon" src='../resources/downvote.png'> Downvote</button>
+        <button id="upvote-button-2" class="response-button" onclick="buttonClicked('upvote', this);"> 
+          <img id="upvote-comment-icon-2" class="button-icon" src='../resources/upvote.png'> Upvote</button>
+        <button id="report-button-2" class="response-button" onclick="buttonClicked('report', this);">
+          <img id="report-icon-2" class="button-icon" src="../resources/flag.png">Report</button>
+        
+      </div>
+      <div id="reply-area-2" class="comment-reply reply-button reply-area">
+        <textarea id="reply-textarea-2" placeholder="Join a discussion" class="reply-textarea"></textarea>
+        <button id="reply-submit-button-2" class="response-button reply-button main-button reply-submit-button" onclick="buttonClicked('reply-submit', this)">Reply</button>
+      </div>
+      
+      <div class="user-comment-spacer"></div>
+    </div>
+    
+    <div id="comment3" class="comment-box"> 
+      <div class="comment-username">User 3018   <a>(18 minutes ago)</a></div>
+     <div class="comment-text">This is the exact reason that a vote for Hillary was the only ethical vote. Trump is a disgrace to the office of the presidency, and the alt-right's takeover of the Republican party has led to bigotry and even violence toward the oppressed members of our society. No person with morals could write something so disgustingly ignorant of the struggles of people who are different from them.</div>
+      <div class="comment-interactions secondary-interactions">
+        <button id="reply-button-3" class="response-button reply-button" onclick="buttonClicked('reply', this)">Reply</button>
+        <button id="downvote-button-3" class="response-button" onclick="buttonClicked('downvote', this);"> 
+          <img id="downvote-comment-icon-3" class="button-icon" src='../resources/downvote.png'> Downvote</button>
+        <button id="upvote-button-3" class="response-button" onclick="buttonClicked('upvote', this);"> 
+          <img id="upvote-comment-icon-3" class="button-icon" src='../resources/upvote.png'> Upvote</button>
+        <button id="report-button-3" class="response-button" onclick="buttonClicked('report', this);">
+          <img id="report-icon-1" class="button-icon" src="../resources/flag.png">Report</button>
+        
+      </div>
+      <div id="reply-area-3" class="comment-reply reply-button reply-area">
+        <textarea id="reply-textarea-3" placeholder="Join a discussion" class="reply-textarea"></textarea>
+        <button id="reply-submit-button-3" class="response-button reply-button main-button reply-submit-button" onclick="buttonClicked('reply-submit', this)">Reply</button>
+      </div>
+      <div class="user-comment-spacer"></div>
+    </div>
+    
+    <div id="comment4" class="comment-box"> 
+     <div class="comment-username">User 5472   <a>(7 minutes ago)</a></div>
+      <div class="comment-text">crooked hillary is actually a cuck lol. her husband got blown by an intern. Trump knows how to keep his women in line.</div>
+      <div class="comment-interactions secondary-interactions">
+        <button id="reply-button-4" class="response-button reply-button" onclick="buttonClicked('reply', this)">Reply</button>
+        <button id="downvote-button-4" class="response-button" onclick="buttonClicked('downvote', this);"> 
+          <img id="downvote-comment-icon-4" class="button-icon" src='../resources/downvote.png'> Downvote</button>
+        <button id="upvote-button-4" class="response-button" onclick="buttonClicked('upvote', this);"> 
+          <img id="upvote-comment-icon-4" class="button-icon" src='../resources/upvote.png'> Upvote</button>
+        <button id="report-button-4" class="response-button" onclick="buttonClicked('report', this);">
+          <img id="report-icon-1" class="button-icon" src="../resources/flag.png">Report</button>
+
+      </div>
+      <div id="reply-area-4" class="comment-reply reply-button reply-area">
+        <textarea id="reply-textarea-4" placeholder="Join a discussion" class="reply-textarea"></textarea>
+        <button id="reply-submit-button-4" class="response-button reply-button main-button reply-submit-button" onclick="buttonClicked('reply-submit', this)">Reply</button>
+      </div>
+      
+      <div class="user-comment-spacer"></div>
+    </div>
+    
+    
+  </div>
+  
+  <div id="comment-section-break"></div>
+  
+  <div id="enter-comment">
+    <button id="enter-comment" class="response-button reply-button main-button reply-submit-button" onclick="buttonClicked('enter-comment', this)">Enter a Comment</button>
+  </div>
+
+  <div id="comment-display">
+  <div id="comment-submission">
+    <div id="comment-submission-title"><img id="comment-submission-icon" src="../resources/commentBubble.png"> Comment</div>
+  </div>
+  
+  <div id="comment-area-1" class="comment-reply reply-button">
+    <textarea id="comment-textarea" placeholder="Join the discussion" class="reply-textarea"></textarea>
+    <button id="comment-submit-button-1" class="response-button reply-button main-button reply-submit-button" onclick="buttonClicked('comment-submit', this)">Comment</button>
+  </div>
+<!--<onmousedown="checkForIntervention()"-->
+  <div id="comment-submission-footer"></div>
+
+  <div id="project-continue"> <button id="exercise-continue" class="continue-button" onclick="continueToEnd()">Continue</button></div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      postToSheet("Landed on Exercise Page", "N/A", "START");
+    });
+  </script>
+</body>
+</html> 

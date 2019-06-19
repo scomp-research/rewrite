@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles/drawandfacesidsurvey.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  
+<script>
+  function fireComplete() {
+    var form = document.getElementById("eye-form");
+    
+    var val1 = $('input[name=feeling]:checked').val();
+    var val2 = $('input[name=calm]:checked').val();
+    var val3 = $('input[name=fedup]:checked').val();
+    
+    if (val1 === undefined || val2 === undefined || val3 === undefined) {
+      alert("Please select a value for each question."); 
+    } else {
+      parent.endSurvey("Variable_intervention", [{"feeling":val1},{"calm":val2},{"fedup":val3}]); 
+    }
+  }
+</script>
+  
+</head>
+<body>
+<script src="../scripts/jquery-3.3.1.min.js"></script>
+<script src="../scripts/openmodel.js"></script>
+<script>
+$(document).ready(function(){
+  openmodel(); 
+}); 
+</script>
+<script>
+	$('input:radio').click(function() {
+	var feeling = $('input:radio[name=feeling]:checked').val();
+	var calm = $('input:radio[name=calm]:checked').val();
+	var fedup = $('input:radio[name=fedup]:checked').val();
+	});
+</script>
+    <main id="main">
+    	<div class = "container">
+	<div id = "survey1" class="model-box">		
+	<header>
+                <p class="title">Please answer the following to help us better understand your comment:</p>
+                <p class="text"></p>
+        </header>
+            
+            
+        <div class="questions">
+		<table id = "surveytable1" class = "singlequestionsurvey">
+			<thead>
+				<tr>
+					<th id="question1" class = "singlequestionheader" colspan="4">1. Right now I feel _______ .</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr id="scale1" class="sevenlevelscale" >
+					<td>Very unpleasant</td>
+					<td>Unpleasant</td>
+					<td>Mildly unpleasant</td>
+					<td>Neutral</td>
+					<td>Mildly pleasant</td>
+					<td>Pleasant</td>
+					<td>Very pleasant</td>
+				</tr>
+
+				<tr id="options1" class="sevenradioitems">
+					<td><input type="radio" value="-3" name="feeling"/></td>
+					<td><input type="radio" value="-2" name="feeling"/></td>
+					<td><input type="radio" value="-1" name="feeling"/></td>
+					<td><input type="radio" value="0" name="feeling"/></td>
+					<td><input type="radio" value="1" name="feeling"/></td>
+					<td><input type="radio" value="2" name="feeling"/></td>
+					<td><input type="radio" value="3" name="feeling"/></td>
+				</tr>
+			</tbody>
+		</table>		
+		<table id = "surveytable2" class = "singlequestionsurvey">
+			<thead>
+				<tr>
+					<th id="question2" class = "singlequestionheader" colspan="4">2. Right now I feel _______ .</th>			
+				</tr>
+			</thead>	
+			<tbody>
+				<tr id="scale2" class="fourlevelscale">
+					<td>Not at all calm</td>
+					<td>Somewhat calm</td>
+					<td>Very calm</td>
+					<td>Extremely calm</td>
+				</tr>
+
+				<tr id="options2" class="fourradioitems">
+					<td><input type="radio" value="0" name="calm"/></td>
+					<td><input type="radio" value="1" name="calm"/></td>
+					<td><input type="radio" value="2" name="calm"/></td>
+					<td><input type="radio" value="3" name="calm"/></td>
+				</tr>
+
+			</tbody>
+		</table>
+		<table id = "surveytable3" class = "singlequestionsurvey">
+			<thead>
+				<tr>
+					<th id="question3" class = "singlequestionheader" colspan="4">3. Right now I feel _______ .</th>			
+				</tr>
+			</thead>	
+			<tbody>
+				<tr id="scale3" class="fourlevelscale">
+					<td>Not at all fed up</td>
+					<td>Somewhat fed up</td>
+					<td>Very fed up</td>
+					<td>Extremely fed up</td>
+				</tr>	    
+				<tr id="options3" class="fourradioitems">
+					<td><input type="radio" value="0" name="fedup"/></td>
+					<td><input type="radio" value="1" name="fedup"/></td>
+					<td><input type="radio" value="2" name="fedup"/></td>
+					<td><input type="radio" value="3" name="fedup"/></td>
+				</tr>    
+			</tbody>
+		</table>
+        	<button id = "submit" onclick="fireComplete()">Submit</button>
+	</div>
+	</div>
+	</div>
+</main>
+
+</body>
+</html>
