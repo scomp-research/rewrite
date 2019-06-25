@@ -35,7 +35,7 @@ var SURVEY_FILE_LOCATION = "../surveys/wordunscramblesurvey.html";
 var SURVEY_WIDTH = "580px";
 var SURVEY_HEIGHT = "470px"; 
 
-var MAX_INTERVENTIONS_ATTEMPTED = 13; //Change this to change number of interventions to attempt.
+var MAX_INTERVENTIONS_ATTEMPTED = 16; //Change this to change number of interventions to attempt.
 
 localStorage.setItem("commentComplete", "not_complete");
 
